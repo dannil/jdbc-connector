@@ -43,6 +43,13 @@ public class SelectQueryBuilder implements QueryBuilder {
             }
         }
 
+        // Check if we have any ORDER BY condition
+        Ordering ordering = payload.getOrdering();
+        if (ordering != null) {
+            builder.append(" ORDER BY ");
+            builder.append(ordering.getOrder());
+        }
+
         // GET QUERY
         return builder.toString();
     }

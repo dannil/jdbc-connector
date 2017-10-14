@@ -27,6 +27,11 @@ public class PayloadBuilder {
         return this;
     }
 
+    public PayloadBuilder setOrdering(Ordering ordering) {
+        this.payload.setOrdering(ordering);
+        return this;
+    }
+
     public PayloadBuilder setWheres(Map<String, String> wheres) {
         this.payload.setWheres(wheres);
         return this;

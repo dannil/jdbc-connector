@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.github.dannil.jdbcconnector.database.model.payload.Ordering;
 import com.github.dannil.jdbcconnector.database.model.payload.Payload;
 import com.github.dannil.jdbcconnector.database.model.payload.PayloadBuilder;
 import com.github.dannil.jdbcconnector.database.model.payload.SelectQueryBuilder;
@@ -22,7 +23,7 @@ public class Main {
         wheres.put("field4", "bar");
 
         PayloadBuilder builder = new PayloadBuilder().setTable("table").setType(Type.SELECT).setFields(
-                fields).setWheres(wheres);
+                fields).setWheres(wheres).setOrdering(Ordering.ASCENDING);
         Payload payload = builder.create();
 
         SelectQueryBuilder queryBuilder = new SelectQueryBuilder();
