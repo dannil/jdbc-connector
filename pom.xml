@@ -296,7 +296,8 @@
             <configuration>
               <!-- <configLocation>src/test/resources/checkstyle/checkstyle.xml</configLocation> -->
               <!-- <suppressionsLocation>src/test/resources/checkstyle/checkstyle-suppressions.xml</suppressionsLocation> -->
-              <failOnViolation>true</failOnViolation>
+              <!-- <failOnViolation>true</failOnViolation> -->
+              <failOnViolation>false</failOnViolation>
             </configuration>
           </execution>
         </executions>
