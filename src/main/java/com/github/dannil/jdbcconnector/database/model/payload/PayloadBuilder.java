@@ -22,8 +22,8 @@ public class PayloadBuilder {
     }
 
     // Maybe not here??
-    public PayloadBuilder setFields(Collection<String> fields) {
-        this.payload.setFields(fields);
+    public PayloadBuilder setFroms(Collection<String> froms) {
+        this.payload.setFroms(froms);
         return this;
     }
 

@@ -10,13 +10,13 @@ public class Payload {
     private Type type;
     private String table;
 
-    private Collection<String> fields;
+    private Collection<String> froms;
     private Map<String, String> wheres;
 
     private Ordering ordering;
 
     public Payload() {
-        this.fields = new ArrayList<>();
+        this.froms = new ArrayList<>();
         this.wheres = new LinkedHashMap<>();
     }
 
@@ -42,12 +42,12 @@ public class Payload {
         this.table = table;
     }
 
-    public Collection<String> getFields() {
-        return fields;
+    public Collection<String> getFroms() {
+        return froms;
     }
 
-    public void setFields(Collection<String> fields) {
-        this.fields = fields;
+    public void setFroms(Collection<String> froms) {
+        this.froms = froms;
     }
 
     public Map<String, String> getWheres() {

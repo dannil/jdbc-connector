@@ -13,9 +13,9 @@ public class SelectQueryBuilder implements QueryBuilder {
         builder.append("SELECT ");
 
         // Figure out fields (columns) to select from
-        Collection<String> fields = payload.getFields();
-        if (!fields.isEmpty()) {
-            for (Iterator<String> it = fields.iterator(); it.hasNext();) {
+        Collection<String> froms = payload.getFroms();
+        if (!froms.isEmpty()) {
+            for (Iterator<String> it = froms.iterator(); it.hasNext();) {
                 String field = it.next();
                 builder.append(field);
                 if (it.hasNext()) {
