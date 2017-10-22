@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,6 +70,31 @@ public class DataAccess {
         // DatabaseConnector.closeResources(connection, statement);
         // }
         return null;
+    }
+
+    public ResultSet executeQuery(String query) throws SQLException {
+        Connection connection = null;
+        Statement statement = null;
+        try {
+            connection = this.dbConnector.getConnection();
+            statement = connection.createStatement();
+            return statement.executeQuery(query);
+        } finally {
+            DatabaseConnector.closeResources(connection, statement);
+        }
+    }
+
+    public ResultSet executePreparedQuery(String query, String... parameters) throws SQLException {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = this.dbConnector.getConnection();
+            String preparedQuery = String.format(query.replace("?", "%s"), new Object[] { parameters });
+            statement = connection.prepareStatement(preparedQuery);
+            return statement.executeQuery();
+        } finally {
+            DatabaseConnector.closeResources(connection, statement);
+        }
     }
 
     private List<Tuple> extractResultSet(ResultSet resultSet) throws SQLException {

@@ -1,6 +1,7 @@
 package com.github.dannil.jdbcconnector;
 
 import java.sql.Driver;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -35,6 +36,14 @@ public class JdbcConnector {
 
     public List<Tuple> selectAll(String table, Payload payload) throws SQLException {
         return this.dataAccess.selectAll(table, payload);
+    }
+
+    public ResultSet executeQuery(String query) throws SQLException {
+        return this.dataAccess.executeQuery(query);
+    }
+
+    public ResultSet executePreparedQuery(String query, String... parameters) throws SQLException {
+        return this.dataAccess.executePreparedQuery(query, parameters);
     }
 
 }
