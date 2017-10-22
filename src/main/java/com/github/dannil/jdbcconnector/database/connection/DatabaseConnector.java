@@ -47,8 +47,12 @@ public class DatabaseConnector {
     // }
 
     public static void closeResources(Connection connection, Statement statement) throws SQLException {
-        connection.close();
-        statement.close();
+        if (statement != null) {
+            statement.close();
+        }
+        if (connection != null) {
+            connection.close();
+        }
     }
 
     public String getUrl() {
