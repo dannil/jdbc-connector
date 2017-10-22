@@ -45,6 +45,8 @@ public class DataAccess {
     }
 
     public List<Tuple> selectAll(String table, Payload payload) throws SQLException {
+        System.out.println(payload.getQuery());
+
         Connection connection = null;
         PreparedStatement statement = null;
         try {
