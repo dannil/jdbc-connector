@@ -8,7 +8,7 @@ import java.util.List;
 import com.github.dannil.jdbcconnector.database.access.DataAccess;
 import com.github.dannil.jdbcconnector.database.connection.DatabaseConnector;
 import com.github.dannil.jdbcconnector.database.model.Tuple;
-import com.github.dannil.jdbcconnector.database.model.payload.Payload;
+import com.github.dannil.jdbcconnector.database.model.payload.SelectPayload;
 
 public class JdbcConnector {
 
@@ -34,7 +34,7 @@ public class JdbcConnector {
         return this.dataAccess.select(table);
     }
 
-    public List<Tuple> select(String table, Payload payload) throws SQLException {
+    public List<Tuple> select(String table, SelectPayload payload) throws SQLException {
         return this.dataAccess.select(table, payload);
     }
 

@@ -5,10 +5,9 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class SelectQueryBuilder implements QueryBuilder {
+public class SelectQueryBuilder {
 
-    @Override
-    public String getQuery(Payload payload) {
+    public static String getQuery(SelectPayload payload) {
         StringBuilder builder = new StringBuilder();
         builder.append("SELECT ");
 

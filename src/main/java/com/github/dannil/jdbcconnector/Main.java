@@ -7,10 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.github.dannil.jdbcconnector.database.model.payload.Ordering;
-import com.github.dannil.jdbcconnector.database.model.payload.Payload;
-import com.github.dannil.jdbcconnector.database.model.payload.PayloadBuilder;
+import com.github.dannil.jdbcconnector.database.model.payload.SelectPayload;
 import com.github.dannil.jdbcconnector.database.model.payload.SelectQueryBuilder;
-import com.github.dannil.jdbcconnector.database.model.payload.Type;
 
 public class Main {
 
@@ -19,21 +17,24 @@ public class Main {
 
         JdbcConnector con = new JdbcConnector("", "", "");
 
-        List<String> fields = Arrays.asList("field1", "field2");
+        List<String> froms = Arrays.asList("column1", "column2");
 
         Map<String, String> wheres = new LinkedHashMap<String, String>();
         wheres.put("field3", "foo");
         wheres.put("field4", "bar");
 
-        PayloadBuilder builder = new PayloadBuilder().setTable("table").setType(Type.SELECT).setFroms(fields).setWheres(
-                wheres).setOrdering(Ordering.ASCENDING);
-        Payload payload = builder.create();
+        // PayloadBuilder builder = new
+        // PayloadBuilder().setTable("table").setType(Type.SELECT).setFroms(fields).setWheres(
+        // wheres).setOrdering(Ordering.ASCENDING);
+        SelectPayload selectPayload = new SelectPayload("table");
+        selectPayload.setFroms(froms);
+        selectPayload.setWheres(wheres);
+        selectPayload.setOrdering(Ordering.ASCENDING);
 
-        SelectQueryBuilder queryBuilder = new SelectQueryBuilder();
-        System.out.println(queryBuilder.getQuery(payload));
+        System.out.println(SelectQueryBuilder.getQuery(selectPayload));
 
-        Payload p2 = new Payload();
-        System.out.println(queryBuilder.getQuery(p2));
+        SelectPayload p2 = new SelectPayload("testtable");
+        System.out.println(SelectQueryBuilder.getQuery(p2));
 
         System.out.println(con.select("test"));
     }

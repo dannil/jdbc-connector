@@ -11,8 +11,7 @@ import java.util.List;
 
 import com.github.dannil.jdbcconnector.database.connection.DatabaseConnector;
 import com.github.dannil.jdbcconnector.database.model.Tuple;
-import com.github.dannil.jdbcconnector.database.model.payload.Payload;
-import com.github.dannil.jdbcconnector.database.model.payload.Type;
+import com.github.dannil.jdbcconnector.database.model.payload.SelectPayload;
 
 public class DataAccess {
 
@@ -28,7 +27,7 @@ public class DataAccess {
     }
 
     public List<Tuple> select(String table) throws SQLException {
-        Payload payload = new Payload(table, Type.SELECT);
+        SelectPayload payload = new SelectPayload(table);
         return select(table, payload);
         // Connection connection = null;
         // PreparedStatement statement = null;
@@ -44,7 +43,7 @@ public class DataAccess {
         // }
     }
 
-    public List<Tuple> select(String table, Payload payload) throws SQLException {
+    public List<Tuple> select(String table, SelectPayload payload) throws SQLException {
         System.out.println(payload.getQuery());
 
         Connection connection = null;
