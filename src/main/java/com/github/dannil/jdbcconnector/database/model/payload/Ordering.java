@@ -2,7 +2,7 @@ package com.github.dannil.jdbcconnector.database.model.payload;
 
 public enum Ordering {
 
-    ASCENDING("ASC"), DESCENDING("DESC");
+    ASCENDING("asc"), DESCENDING("desc");
 
     private String order;
 
