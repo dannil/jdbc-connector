@@ -27,9 +27,9 @@ public class DataAccess {
         this.dbConnector = dbConnector;
     }
 
-    public List<Tuple> selectAll(String table) throws SQLException {
+    public List<Tuple> select(String table) throws SQLException {
         Payload payload = new Payload(table, Type.SELECT);
-        return selectAll(table, payload);
+        return select(table, payload);
         // Connection connection = null;
         // PreparedStatement statement = null;
         // try {
@@ -44,7 +44,7 @@ public class DataAccess {
         // }
     }
 
-    public List<Tuple> selectAll(String table, Payload payload) throws SQLException {
+    public List<Tuple> select(String table, Payload payload) throws SQLException {
         System.out.println(payload.getQuery());
 
         Connection connection = null;

@@ -30,12 +30,12 @@ public class JdbcConnector {
         this.dbConnector.registerDriver(driver);
     }
 
-    public List<Tuple> selectAll(String table) throws SQLException {
-        return this.dataAccess.selectAll(table);
+    public List<Tuple> select(String table) throws SQLException {
+        return this.dataAccess.select(table);
     }
 
-    public List<Tuple> selectAll(String table, Payload payload) throws SQLException {
-        return this.dataAccess.selectAll(table, payload);
+    public List<Tuple> select(String table, Payload payload) throws SQLException {
+        return this.dataAccess.select(table, payload);
     }
 
     public ResultSet executeQuery(String query) throws SQLException {

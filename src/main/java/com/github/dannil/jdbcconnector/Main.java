@@ -35,7 +35,7 @@ public class Main {
         Payload p2 = new Payload();
         System.out.println(queryBuilder.getQuery(p2));
 
-        System.out.println(con.selectAll("test"));
+        System.out.println(con.select("test"));
     }
 
 }
