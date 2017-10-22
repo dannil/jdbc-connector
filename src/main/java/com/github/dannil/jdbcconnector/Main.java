@@ -22,12 +22,15 @@ public class Main {
         wheres.put("field3", "foo");
         wheres.put("field4", "bar");
 
-        PayloadBuilder builder = new PayloadBuilder().setTable("table").setType(Type.SELECT).setFields(
-                fields).setWheres(wheres).setOrdering(Ordering.ASCENDING);
+        PayloadBuilder builder = new PayloadBuilder().setTable("table").setType(Type.SELECT).setFroms(fields).setWheres(
+                wheres).setOrdering(Ordering.ASCENDING);
         Payload payload = builder.create();
 
         SelectQueryBuilder queryBuilder = new SelectQueryBuilder();
         System.out.println(queryBuilder.getQuery(payload));
+
+        Payload p2 = new Payload();
+        System.out.println(queryBuilder.getQuery(p2));
     }
 
 }

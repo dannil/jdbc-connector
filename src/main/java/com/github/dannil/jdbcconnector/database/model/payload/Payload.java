@@ -66,8 +66,14 @@ public class Payload {
         this.ordering = ordering;
     }
 
-    // public String getQuery() {
-    //
-    // }
+    public String getQuery() {
+        switch (this.type) {
+            case SELECT:
+                return new SelectQueryBuilder().getQuery(this);
+            default:
+                return null;
+
+        }
+    }
 
 }
