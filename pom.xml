@@ -112,40 +112,12 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.20</version>
-        <!-- Dependencies necessary for Surefire 2.20 to pick up JUnit 5 tests. This 
-          won't be needed when a future release of Surefire incorporates JUnit 5 support -->
-        <dependencies>
-          <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-surefire-provider</artifactId>
-            <version>1.0.1</version>
-          </dependency>
-          <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.0.1</version>
-          </dependency>
-        </dependencies>
+        <version>3.0.0-M4</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
-        <version>2.20</version>
-        <!-- Dependencies necessary for Failsafe 2.20 to pick up JUnit 5 tests. This 
-          won't be needed when a future release of Surefire incorporates JUnit 5 support -->
-        <dependencies>
-          <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-surefire-provider</artifactId>
-            <version>1.0.1</version>
-          </dependency>
-          <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.0.1</version>
-          </dependency>
-        </dependencies>
+        <version>3.0.0-M4</version>
         <executions>
           <execution>
             <id>integration-test</id>
@@ -164,7 +136,7 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.7.9</version>
+        <version>0.8.5</version>
         <executions>
           <!-- Prepares the property pointing to the JaCoCo runtime agent which -->
           <!-- is passed as a VM argument when maven-surefire-plugin is executed. -->
@@ -279,7 +251,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>2.17</version>
+        <version>3.1.1</version>
         <dependencies>
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
@@ -335,7 +307,7 @@
             <configuration>
               <rules>
                 <requireMavenVersion>
-                  <version>3.0</version>
+                  <version>3.3.9</version>
                 </requireMavenVersion>
                 <requireJavaVersion>
                   <version>${project.java.source}</version>
@@ -375,6 +347,7 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.0.0-M1</version>
         <configuration>
+          <source>${project.java.source}</source>
           <failOnError>true</failOnError>
         </configuration>
         <executions>
